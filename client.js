@@ -1,8 +1,10 @@
-var gpio = require('rpi-gpio')
+var gpio = require('rpi-gpio');
 
-gpio.setup(3, gpio.DIR_OUT, write);
+var pin = 3;
 
-function write() {
+gpio.setup(3, gpio.DIR_OUT, on);
+
+function on() {
   gpio.write(3, true, function(err) {
     if (err) throw err;
     console.log('Written on to pin');
